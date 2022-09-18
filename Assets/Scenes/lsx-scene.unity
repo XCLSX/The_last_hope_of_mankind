@@ -155,6 +155,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _camera: {fileID: 0}
   joyStick: {fileID: 907402759}
+  prefabBullet: {fileID: 2488453591031123168, guid: 3a972b21e2dbc444d81f73215455cb05, type: 3}
+  _fireCD: 0
 --- !u!212 &325221618
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -215,7 +217,7 @@ Transform:
   m_GameObject: {fileID: 325221616}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -712,7 +714,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 20
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2

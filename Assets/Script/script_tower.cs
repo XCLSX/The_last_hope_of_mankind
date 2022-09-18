@@ -8,17 +8,25 @@ public class script_tower : MonoBehaviour
     public Camera _camera;
     [SerializeField]
     private Transform joyStick;
+    [SerializeField]
+    private Transform prefabBullet;
+    [SerializeField]
+    private float _fireCD;
+    private float _currentFireCD;
     private script_joyStick jsCtl;
     private Vector2 _towards;
     private bool _fire;
     private int _firefingerId;
     private Vector2 _startPos;
+
     void Start()
     {
         _towards = new Vector2(0, 1);
         _fire = false;
         _firefingerId = -1;
         jsCtl = joyStick.GetComponent<script_joyStick>();
+        _fireCD = 0.3f;
+        _currentFireCD = _fireCD;
     }
 
     // Update is called once per frame
@@ -26,7 +34,7 @@ public class script_tower : MonoBehaviour
     {
         //turnTowards();
         turnTowardsOnPc();
-
+        _currentFireCD += Time.deltaTime;
     }
 
     private void turnTowards()
@@ -84,6 +92,13 @@ public class script_tower : MonoBehaviour
     {
         Vector2 toward = thPos.normalized;
         jsCtl.setTwards(toward);
+        if (_currentFireCD >= _fireCD)
+        {
+            var Bullet = (GameObject)Instantiate(prefabBullet.gameObject, transform.position, transform.rotation);
+            var scr_bul = Bullet.GetComponent<script_bullet>();
+            scr_bul.setTwards(toward);
+            _currentFireCD = 0.0f;
+        }
     }
     
     private void stopFire()

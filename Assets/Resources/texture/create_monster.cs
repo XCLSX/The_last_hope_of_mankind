@@ -18,7 +18,7 @@ public class create_monster : MonoBehaviour
     void Update()
     {
         timer -= Time.deltaTime;
-        int i = Random.Range(0, 16);
+        int i = Random.Range(0, 32);
         if (timer <= 0)
         {
             create_monsters(i);

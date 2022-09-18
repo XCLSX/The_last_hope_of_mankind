@@ -2,6 +2,6 @@ Library/
 UserSettings/
 Logs/
 Temp/
+obj/
 .vs/
 Assembly-CSharp.csproj
-obj/

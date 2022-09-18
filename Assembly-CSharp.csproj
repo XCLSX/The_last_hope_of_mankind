@@ -58,6 +58,7 @@
   <ItemGroup>
     <Compile Include="Assets\Script\script_bullet.cs" />
     <Compile Include="Assets\Script\script_tower.cs" />
+    <Compile Include="Assets\Script\script_joyStick.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

@@ -28,9 +28,17 @@ public class script_tower : MonoBehaviour
             {
                 if (!_fire && 1 == 1)
                 {
-                    _fire = true
+                    _fire = true;
                 }
             }
+        }
+    }
+    
+    private void fire()
+    {
+        if (_fire)
+        {
+
         }
     }
 }

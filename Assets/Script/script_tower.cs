@@ -25,7 +25,7 @@ public class script_tower : MonoBehaviour
         _fire = false;
         _firefingerId = -1;
         jsCtl = joyStick.GetComponent<script_joyStick>();
-        _fireCD = 0.3f;
+        _fireCD = 0.5f;
         _currentFireCD = _fireCD;
     }
 

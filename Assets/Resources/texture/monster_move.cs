@@ -8,7 +8,7 @@ public class monster_move : MonoBehaviour
     public GameObject player;
     void Start()
     {
-        player = GameObject.Find("езл╗");
+        player = GameObject.Find("tower");
     }
 
     // Update is called once per frame
@@ -17,6 +17,14 @@ public class monster_move : MonoBehaviour
         if (player)
         {
             transform.position = Vector2.MoveTowards(transform.position, player.transform.position, 1.0f * Time.deltaTime);
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.transform.CompareTag("bullet"))
+        {
+            Destroy(collision.gameObject);
+            Destroy(gameObject);
         }
     }
 }

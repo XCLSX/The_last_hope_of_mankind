@@ -3,7 +3,9 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - bullet
+  - monster
   layers:
   - Default
   - TransparentFX
@@ -46,4 +48,7 @@ TagManager:
     locked: 0
   - name: "\u70AE\u53F0"
     uniqueID: 3588361033
+    locked: 0
+  - name: "\u5B50\u5F39"
+    uniqueID: 2374999153
     locked: 0

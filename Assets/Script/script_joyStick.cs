@@ -21,7 +21,6 @@ public class script_joyStick : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        turnTowards();
     }
 
     public void work()
@@ -38,7 +37,7 @@ public class script_joyStick : MonoBehaviour
         _cnetersr.enabled = false;
     }
 
-    private void turnTowards()
+    public void setTwards(Vector2 pos)
     {
         if (_work)
         {

@@ -3,5 +3,9 @@ UserSettings/
 Logs/
 Temp/
 Assembly-CSharp.csproj
+<<<<<<< HEAD
 obj/Debug/Assembly-CSharp.csproj.AssemblyReference.cache
 obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+=======
+lasthope.sln
+>>>>>>> tower

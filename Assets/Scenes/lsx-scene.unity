@@ -153,6 +153,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06d2b57b1ceedeb45a006d86a7670814, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _camera: {fileID: 0}
+  joyStick: {fileID: 803028982}
 --- !u!212 &325221618
 SpriteRenderer:
   m_ObjectHideFlags: 0

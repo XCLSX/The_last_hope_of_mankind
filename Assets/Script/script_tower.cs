@@ -5,6 +5,7 @@ using UnityEngine;
 public class script_tower : MonoBehaviour
 {
     // Start is called before the first frame update
+    public Camera _camera;
     [SerializeField]
     private Transform joyStick;
     private script_joyStick jsCtl;
@@ -32,7 +33,6 @@ public class script_tower : MonoBehaviour
     {
         if (Input.touchCount > 0)
         {
-            Debug.Log(Input.touchCount);
             var touchArr = Input.touches;
             foreach(var touch in touchArr)
             {
@@ -41,7 +41,7 @@ public class script_tower : MonoBehaviour
                     _firefingerId = touch.fingerId;
                     _fire = true;
                     _startPos = touch.position;
-                    jsCtl.work();
+                    jsCtl.work(_startPos);
                 }
                 if (!_fire && touch.fingerId == _firefingerId && touch.phase == TouchPhase.Moved)
                 {
@@ -62,13 +62,11 @@ public class script_tower : MonoBehaviour
         if (Input.GetMouseButtonDown(0) )
         {
             Vector2 startPos = Input.mousePosition;
-            Debug.Log(startPos);
             if (!_fire && 1 == 1)
             {
-               
                 _fire = true;
                 _startPos = startPos;
-                jsCtl.work();
+                jsCtl.work(_startPos);
             }
         }
         else if (Input.GetMouseButtonUp(0))
@@ -76,19 +74,16 @@ public class script_tower : MonoBehaviour
             stopFire();
             jsCtl.stop();
         }
-        else
+        else if (_fire)
         {
             Vector2 mousePos = Input.mousePosition;
-
             fire(mousePos - _startPos);
         }
     }
     private void fire(Vector2 thPos)
     {
-        if (_fire)
-        {
-            jsCtl.setTwards(thPos);
-        }
+        Vector2 toward = thPos.normalized;
+        jsCtl.setTwards(toward);
     }
     
     private void stopFire()

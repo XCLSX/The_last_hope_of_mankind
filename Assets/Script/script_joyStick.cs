@@ -1,20 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class script_joyStick : MonoBehaviour
 {
     // Start is called before the first frame update
     private Transform _center;
-    private SpriteRenderer _sr;
-    private SpriteRenderer _cnetersr;
+    private Image _img;
+    private Image _cneterimg;
+    private Vector2 _startPos;
     private bool _work;
 
     void Start()
     {
-        _sr = GetComponent<SpriteRenderer>();
+        _img = GetComponent<Image>();
         _center = transform.GetChild(0);
-        _cnetersr = _center.GetComponent<SpriteRenderer>();
+        _cneterimg = _center.GetComponent<Image>();
         stop();
     }
 
@@ -23,25 +25,27 @@ public class script_joyStick : MonoBehaviour
     {
     }
 
-    public void work()
+    public void work(Vector2 startPos)
     {
+        _startPos = startPos;
+        transform.position = _startPos;
         _work = true;
-        _sr.enabled = true;
-        _cnetersr.enabled = true;
+        _img.enabled = true;
+        _cneterimg.enabled = true;
     }
 
     public void stop()
     {
         _work = false;
-        _sr.enabled = false;
-        _cnetersr.enabled = false;
+        _img.enabled = false;
+        _cneterimg.enabled = false;
     }
 
     public void setTwards(Vector2 pos)
     {
         if (_work)
         {
-
+            _center.position = _startPos + pos * 40;
         }
     }
 }
